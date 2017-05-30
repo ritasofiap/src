@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TextInterface {
 	
 	public static void main(String[] args){
-		int input = getInput(1,3);
+		
 		//System.out.println(input);
 		welcome();
 	}
@@ -34,7 +34,7 @@ public class TextInterface {
 			}
 			
 						
-			
+		
 			/*while( !s.hasNextInt() ){ //enquanto nao tiver numero inteiro
 				System.out.println("Por favor introduza um caracter numerico.");
 				s.next(); //pedir uma nova insercao
@@ -46,15 +46,14 @@ public class TextInterface {
 	
 		
 		public static void welcome(){ 
-			
+				
 		System.out.println("Por favor selecione uma das seguintes opcoes:");
 		System.out.println("1.Listar produtos");
 		System.out.println("2.Listar prateleiras");
 		System.out.println("3.Sair");
 				
-		getInput(1,3);
+		int input = getInput(1,3);
 		
-		int input = 0;
 		switch (input) {
 		
 			case 1: getProductList();
@@ -69,13 +68,13 @@ public class TextInterface {
 		System.out.println("Escolheu a opcao" + input + ".");
 		
 		}	
-
 		
-			
 		public static void getProductList(){   //screen 1
 			
 			//int input;
 					
+			System.out.println("Lista de produtos");
+						
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar novo produto");
 			System.out.println("2.Editar um produto existente");
@@ -140,7 +139,9 @@ public class TextInterface {
 	
 	
 		/*public static void getViewProductDetails(){
-			System.out.println("Detalhes do produto:");
+			return productId; //array?
+			
+			product[0]
 		}*/
 }	
 		

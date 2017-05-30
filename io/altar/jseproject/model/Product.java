@@ -2,36 +2,39 @@ package io.altar.jseproject.model;
 
 public class Product {
 
-	private int productId;
-	//private int productShelves;
+	private String productId;
+	//private tipo productShelves;
 	private int productVal;
-	private int productIVA;
-	private int productPVP;
+	private double productIVA;
+	private double productPVP;
 	
-	public Product (int productId, int productVal, int productIVA, int productPVP){
+	
+	//array products
+	
+	public Product (String productId, int productVal, double productIVA, double productPVP){
 		this.productId = productId;
 		this.productVal = productVal;
 		this.productIVA = productIVA;
 		this.productPVP = productPVP;
 	}
 	
-	public int getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 	
-	public int getProductVal() {
+	public double getProductVal() {
 		return productVal;
 	}
 	
-	public int getproductIVA() {
+	public double getProductIVA() {
 		return productIVA;
 	}
 	
-	public int getproductPVP() {
+	public double getProductPVP() {
 		return productPVP;
 	}
 	
-	public void setProductId(int productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 	
@@ -39,13 +42,15 @@ public class Product {
 		this.productVal = productVal;
 	}
 	
-	public void setproductIVA(int productIVA) {
+	public void setProductIVA(double productIVA) {
 		this.productIVA = productIVA;
 	}
 	
-	public void setproductPVP(int productPVP) {
+	public void setProductPVP(double productPVP) {
 		this.productPVP = productPVP;
 	}
 	
 }
+
+
 
