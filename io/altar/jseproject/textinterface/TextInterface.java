@@ -5,60 +5,67 @@ import java.util.Scanner;
 public class TextInterface {
 	
 	public static void main(String[] args){
+		int input = getInput(1,3);
+		//System.out.println(input);
 		welcome();
 	}
 	
-		private static void inputValidation(){
+	public static int getInput(int min, int max){
 			
-			int input;
 			Scanner s = new Scanner(System.in);
-					
-			while( !s.hasNextInt() ){ //enquanto nao tiver numero inteiro
+			int input = 0;
+			
+			while(true){ //so termina qdo return
+				if(s.hasNextInt()){
+					input = s.nextInt();
+					if(input >= min && input <= max){
+						s.close();
+						return input;
+					}
+					else{
+						System.out.println("Por favor introduza um numero entre" + min + "e" + max);
+					}
+				}
+				else{
+					System.out.println("Por favor introduza um caracter numerico.");
+					s.next();
+				}
+				}
+			}
+			
+						
+			
+			/*while( !s.hasNextInt() ){ //enquanto nao tiver numero inteiro
 				System.out.println("Por favor introduza um caracter numerico.");
 				s.next(); //pedir uma nova insercao
 				}
 				input = s.nextInt(); //recolher o input valido
 				s.close();
-				System.out.println(input);
-			}
+				return input;
+			}*/
 	
 		
 		public static void welcome(){ 
-		
-		int input;
-		Scanner s = new Scanner(System.in);
-		
+			
 		System.out.println("Por favor selecione uma das seguintes opcoes:");
 		System.out.println("1.Listar produtos");
 		System.out.println("2.Listar prateleiras");
 		System.out.println("3.Sair");
 				
-		inputValidation();
-	
+		getInput(1,3);
+		
+		int input = 0;
 		switch (input) {
 		
 			case 1: getProductList();
+				break;
 			case 2: getShelvesList();
-			case 3: getExit();
+				break;
+			case 3: welcome();
 				break;
 			default: break;
 		}
 			
-		/*if (input == 1)
-		{
-			input = getProductList();
-		}
-		else
-			if (input == 2)
-			{
-				input = getShelvesList();
-			}
-			else
-				if (input == 3)
-				{
-					input = getExit();
-				}*/
-		
 		System.out.println("Escolheu a opcao" + input + ".");
 		
 		}	
@@ -67,9 +74,8 @@ public class TextInterface {
 			
 		public static void getProductList(){   //screen 1
 			
-			int input;
-			Scanner s = new Scanner(System.in);
-			
+			//int input;
+					
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar novo produto");
 			System.out.println("2.Editar um produto existente");
@@ -77,28 +83,31 @@ public class TextInterface {
 			System.out.println("4.Remover um produto");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			inputValidation();
+			getInput(1,5);
 			
-			switch (input) {
+			/*switch (input) {
 			
 			case 1: getNewProduct();
+				break;
 			case 2: getEditProduct();
+				break;
 			case 3: getViewProductDetails();
+				break;
 			case 4: getDeleteProduct();
+				break;
 			case 5: getBack();
 				break;
 			default: break;
-			}
+			}*/
 						
-			System.out.println("Escolheu a opcao" + input + ".");
+			//System.out.println("Escolheu a opcao" + input + ".");//
 			
 			}	
 		
 		public static void getShelvesList(){   //screen 2
 			
-			int input;
-			Scanner s = new Scanner(System.in);
-			
+			//int input = 1;
+					
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
 			System.out.println("2.Editar uma prateleira existente");
@@ -106,33 +115,34 @@ public class TextInterface {
 			System.out.println("4.Remover uma prateleira");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			inputValidation();
+			getInput(1,5);
+		
 			
-			switch (input) {
+			/*switch (input) {
 			
 			case 1: getNewShelf();
+				break;
 			case 2: getEditshelf();
+				break;
 			case 3: getViewShelfDetails();
+				break;
 			case 4: getDeleteshelf();
+				break;
 			case 5: getBack();
 				break;
 			default: break;
-			}
+			}*/
 						
-			System.out.println("Escolheu a opcao" + input + ".");
+			//System.out.println("Escolheu a opcao" + input + ".");//
 			
 			}	
 		
-		public static void getExit(){   //screen 3=sair
-			
-			}
-		
-		
-		
-		public static void getViewProductDetails(){
-			System.out.println("Detalhes do produto:" + );
-		}
-				
+	
+	
+		/*public static void getViewProductDetails(){
+			System.out.println("Detalhes do produto:");
+		}*/
+}	
 		
 		
 		
