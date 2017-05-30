@@ -141,6 +141,7 @@ public class TextInterface {
 		/*public static void getViewProductDetails(){
 			return productId; //array?
 			
+			System.out.println("");
 			product[0]
 		}*/
 }	
