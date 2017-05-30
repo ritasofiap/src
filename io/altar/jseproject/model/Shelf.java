@@ -6,13 +6,13 @@ public class Shelf {
 	private String shelfLocal;
 	private int shelfCapacity;
 	//private int shelfProducts;
-	private int shelfPrice;
+	private int shelfDailyPCost;
 
-	public Shelf (int shelfId, String shelfLocal, int shelfCapacity, int shelfPrice){
+	public Shelf (int shelfId, String shelfLocal, int shelfCapacity, int shelfDailyPCost){
 		this.shelfId = shelfId;
 		this.shelfLocal = shelfLocal;
 		this.shelfCapacity = shelfCapacity;
-		this.shelfPrice = shelfPrice;
+		this.shelfDailyPCost = shelfDailyPCost;
 	}
 	
 	
@@ -28,8 +28,8 @@ public class Shelf {
 		return shelfCapacity;
 	}
 	
-	public int getShelfPrice() {
-		return shelfPrice;
+	public int getshelfDailyPCost() {
+		return shelfDailyPCost;
 	}
 	
 
@@ -42,8 +42,8 @@ public class Shelf {
 	public void setshelfCapacity(int shelfCapacity) {
 		this.shelfCapacity = shelfCapacity;
 	}
-	public void setShelfPrice(int shelfPrice) {
-		this.shelfPrice = shelfPrice;
+	public void setshelfDailyPCost(int shelfDailyPCost) {
+		this.shelfDailyPCost = shelfDailyPCost;
 	}
 	
 	

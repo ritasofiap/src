@@ -5,14 +5,14 @@ public class Product {
 	private int productId;
 	//private int productShelves;
 	private int productVal;
-	private int productIva;
-	private int productVenda;
+	private int productIVA;
+	private int productPVP;
 	
-	public Product (int productId, int productVal, int productIva, int productVenda){
+	public Product (int productId, int productVal, int productIVA, int productPVP){
 		this.productId = productId;
 		this.productVal = productVal;
-		this.productIva = productIva;
-		this.productVenda = productVenda;
+		this.productIVA = productIVA;
+		this.productPVP = productPVP;
 	}
 	
 	public int getProductId() {
@@ -23,15 +23,14 @@ public class Product {
 		return productVal;
 	}
 	
-	public int getProductIva() {
-		return productIva;
+	public int getproductIVA() {
+		return productIVA;
 	}
 	
-	public int getProductVenda() {
-		return productVenda;
+	public int getproductPVP() {
+		return productPVP;
 	}
 	
-
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
@@ -40,12 +39,12 @@ public class Product {
 		this.productVal = productVal;
 	}
 	
-	public void setProductIva(int productIva) {
-		this.productIva = productIva;
+	public void setproductIVA(int productIVA) {
+		this.productIVA = productIVA;
 	}
 	
-	public void setProductVenda(int productVenda) {
-		this.productVenda = productVenda;
+	public void setproductPVP(int productPVP) {
+		this.productPVP = productPVP;
 	}
 	
 }
