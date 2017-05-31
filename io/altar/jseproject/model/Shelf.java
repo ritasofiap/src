@@ -3,12 +3,12 @@ package io.altar.jseproject.model;
 public class Shelf {
 
 	private int shelfId;
-	private String shelfLocal;
+	private int shelfLocal;
 	private int shelfCapacity;
 	//private int shelfProducts;
 	private int shelfDailyPCost;
 
-	public Shelf (int shelfId, String shelfLocal, int shelfCapacity, int shelfDailyPCost){
+	public Shelf (int shelfId, int shelfLocal, int shelfCapacity, int shelfDailyPCost){
 		this.shelfId = shelfId;
 		this.shelfLocal = shelfLocal;
 		this.shelfCapacity = shelfCapacity;
@@ -20,7 +20,7 @@ public class Shelf {
 		return shelfId;
 	}
 	
-	public String getShelfLocal() {
+	public int getShelfLocal() {
 		return shelfLocal;
 	}
 	
@@ -36,7 +36,7 @@ public class Shelf {
 	public void setShelfId(int shelfId) {
 		this.shelfId = shelfId;
 	}
-	public void setShelfLocal(String shelfLocal) {
+	public void setShelfLocal(int shelfLocal) {
 		this.shelfLocal = shelfLocal;
 	}
 	public void setshelfCapacity(int shelfCapacity) {

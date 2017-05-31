@@ -2,7 +2,7 @@ package io.altar.jseproject.model;
 
 public class Product {
 
-	private String productId;
+	private int productId;
 	//private tipo productShelves;
 	private int productVal;
 	private double productIVA;
@@ -11,14 +11,14 @@ public class Product {
 	
 	//array products
 	
-	public Product (String productId, int productVal, double productIVA, double productPVP){
+	public Product (int productId, int productVal, double productIVA, double productPVP){
 		this.productId = productId;
 		this.productVal = productVal;
 		this.productIVA = productIVA;
 		this.productPVP = productPVP;
 	}
 	
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 	
@@ -34,7 +34,7 @@ public class Product {
 		return productPVP;
 	}
 	
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	

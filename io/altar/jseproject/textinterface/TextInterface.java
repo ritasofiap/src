@@ -1,5 +1,6 @@
 package io.altar.jseproject.textinterface;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextInterface {
@@ -23,7 +24,7 @@ public class TextInterface {
 						return input;
 					}
 					else{
-						System.out.println("Por favor introduza um numero entre" + min + "e" + max);
+						System.out.println("Por favor introduza um numero entre " + min + " e " + max);
 					}
 				}
 				else{
@@ -32,8 +33,7 @@ public class TextInterface {
 				}
 				}
 			}
-			
-						
+								
 		
 			/*while( !s.hasNextInt() ){ //enquanto nao tiver numero inteiro
 				System.out.println("Por favor introduza um caracter numerico.");
@@ -54,6 +54,8 @@ public class TextInterface {
 				
 		int input = getInput(1,3);
 		
+		System.out.println("Escolheu a opcao " + input + ".");
+		
 		switch (input) {
 		
 			case 1: 
@@ -66,18 +68,26 @@ public class TextInterface {
 				welcome();
 				break;
 			default: 
-				System.out.println("Por favor introduza um numero entre" + 1 + "e" + 3);
+				System.out.println("Por favor introduza um numero entre " + 1 + " e " + 3);
 				break;
 		}
 			
-		System.out.println("Escolheu a opcao" + input + ".");
-		
 		}	
 		
 		public static void getProductList(){   //screen 1
 							
-			System.out.println("Lista de produtos");
-						
+		//	System.out.println("Lista de produtos"); //
+	
+			ArrayList<Integer> productId = new ArrayList<>();
+			
+			productId.add(1);
+			productId.add(2);
+			productId.add(3);
+			
+			System.out.println("Lista de produtos: " + productId.toString());
+			
+			//novas opcoes:
+			
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar novo produto");
 			System.out.println("2.Editar um produto existente");
@@ -85,7 +95,9 @@ public class TextInterface {
 			System.out.println("4.Remover um produto");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			int input = getInput(1,5);
+			//int input = getInput(1,5);
+			
+			//System.out.println("Escolheu a opcao" + input + ".");//
 			
 			/*switch (input) {
 			
@@ -105,17 +117,24 @@ public class TextInterface {
 				getBack();
 				break;
 			default: 
-			  	System.out.println("Por favor introduza um numero entre" + 1 + "e" + 5);
+			  	System.out.println("Por favor introduza um numero entre " + 1 + " e " + 5);
 			  	break;
 			}*/
-						
-			//System.out.println("Escolheu a opcao" + input + ".");//
-			
+					
 			}	
 		
 		public static void getShelvesList(){   //screen 2
 			
-					
+			System.out.println("Lista de prateleiras"); 
+			
+			ArrayList<Integer> shelfId = new ArrayList<>();
+			
+			shelfId.add(1);
+			shelfId.add(2);
+			shelfId.add(3);
+			
+			System.out.println("Lista de produtos: " + shelfId .toString());
+			
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
 			System.out.println("2.Editar uma prateleira existente");
@@ -123,9 +142,10 @@ public class TextInterface {
 			System.out.println("4.Remover uma prateleira");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			int input = getInput(1,5);
-		
+			//int input = getInput(1,5);
 			
+			//System.out.println("Escolheu a opcao" + input + ".");//
+					
 			/*switch (input) {
 			
 			case 1: 
@@ -150,8 +170,21 @@ public class TextInterface {
 							
 			}	
 		
-	
-	
+		public static void getNewProduct(){
+			System.out.println("Por favor insira os dados do novo produto");
+			//int input;
+			Scanner s = new Scanner(System.in);
+									
+			s.close();
+			
+			
+			// productVal.add(inputVal);
+			// productIVA.add(inputIVA);
+			// productPVP.add(inputPVP);
+			
+			
+		}
+		
 		/*public static void getViewProductDetails(){
 			return productId; //array?
 			
