@@ -56,13 +56,18 @@ public class TextInterface {
 		
 		switch (input) {
 		
-			case 1: getProductList();
+			case 1: 
+				getProductList();
 				break;
-			case 2: getShelvesList();
+			case 2: 
+				getShelvesList();
 				break;
-			case 3: welcome();
+			case 3: 
+				welcome();
 				break;
-			default: break;
+			default: 
+				System.out.println("Por favor introduza um numero entre" + 1 + "e" + 3);
+				break;
 		}
 			
 		System.out.println("Escolheu a opcao" + input + ".");
@@ -70,9 +75,7 @@ public class TextInterface {
 		}	
 		
 		public static void getProductList(){   //screen 1
-			
-			//int input;
-					
+							
 			System.out.println("Lista de produtos");
 						
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
@@ -82,21 +85,28 @@ public class TextInterface {
 			System.out.println("4.Remover um produto");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			getInput(1,5);
+			int input = getInput(1,5);
 			
 			/*switch (input) {
 			
-			case 1: getNewProduct();
+			case 1: 
+				getNewProduct();
 				break;
-			case 2: getEditProduct();
+			case 2: 
+				getEditProduct();
 				break;
-			case 3: getViewProductDetails();
+			case 3: 
+				getViewProductDetails();
 				break;
-			case 4: getDeleteProduct();
+			case 4: 
+				getDeleteProduct();
 				break;
-			case 5: getBack();
+			case 5: 
+				getBack();
 				break;
-			default: break;
+			default: 
+			  	System.out.println("Por favor introduza um numero entre" + 1 + "e" + 5);
+			  	break;
 			}*/
 						
 			//System.out.println("Escolheu a opcao" + input + ".");//
@@ -105,7 +115,6 @@ public class TextInterface {
 		
 		public static void getShelvesList(){   //screen 2
 			
-			//int input = 1;
 					
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
@@ -114,26 +123,31 @@ public class TextInterface {
 			System.out.println("4.Remover uma prateleira");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			getInput(1,5);
+			int input = getInput(1,5);
 		
 			
 			/*switch (input) {
 			
-			case 1: getNewShelf();
+			case 1: 
+				getNewShelf();
 				break;
-			case 2: getEditshelf();
+			case 2: 
+				getEditshelf();
 				break;
-			case 3: getViewShelfDetails();
+			case 3: 
+				getViewShelfDetails();
 				break;
-			case 4: getDeleteshelf();
+			case 4: 
+				getDeleteshelf();
 				break;
-			case 5: getBack();
+			case 5: 
+				getBack();
 				break;
-			default: break;
+			default: 
+				System.out.println("Por favor introduza um numero entre" + 1 + "e" + 5);
+			 	break;
 			}*/
-						
-			//System.out.println("Escolheu a opcao" + input + ".");//
-			
+							
 			}	
 		
 	

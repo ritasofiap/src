@@ -18,3 +18,21 @@ public class productsTest {
 	}
 		
 }
+
+//2d arrays?
+
+
+
+//exemplo array
+int[] nyInts = {1, 4, 5, 6, 7, 20};
+
+/*for(int i=0; i< myInts.lenght; i++){
+	System.out.println(myInts[i]);
+	
+}*/
+
+for(int myInt : myInts){  //este for each e'equivalente ao for de cima! mais simples de ler
+	System.out.println(myInt);
+	}
+
+//por cada elemento do array crio um myint
