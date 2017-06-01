@@ -9,7 +9,10 @@ public class Product {
 	private double productPVP;
 	
 	
-	//array products
+	//array products?
+	
+	
+	
 	
 	public Product (int productId, int productVal, double productIVA, double productPVP){
 		this.productId = productId;

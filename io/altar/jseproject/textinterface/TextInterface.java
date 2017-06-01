@@ -3,11 +3,11 @@ package io.altar.jseproject.textinterface;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class TextInterface {
 	
 	public static void main(String[] args){
 		
-		//System.out.println(input);
 		welcome();
 	}
 	
@@ -45,7 +45,7 @@ public class TextInterface {
 			}*/
 	
 		
-		public static void welcome(){ 
+		public static void welcome(){  //screen 1
 				
 		System.out.println("Por favor selecione uma das seguintes opcoes:");
 		System.out.println("1.Listar produtos");
@@ -74,7 +74,7 @@ public class TextInterface {
 			
 		}	
 		
-		public static void getProductList(){   //screen 1
+		public static void getProductList(){   //screen 1.1
 							
 		//	System.out.println("Lista de produtos"); //
 	
@@ -95,11 +95,11 @@ public class TextInterface {
 			System.out.println("4.Remover um produto");
 			System.out.println("5.Voltar ao ecrã anterior");
 			
-			//int input = getInput(1,5);
+			int input = getInput(1,5);
 			
-			//System.out.println("Escolheu a opcao" + input + ".");//
+			System.out.println("Escolheu a opcao" + input + ".");//
 			
-			/*switch (input) {
+			switch (input) {
 			
 			case 1: 
 				getNewProduct();
@@ -114,16 +114,16 @@ public class TextInterface {
 				getDeleteProduct();
 				break;
 			case 5: 
-				getBack();
+				welcome();
 				break;
 			default: 
 			  	System.out.println("Por favor introduza um numero entre " + 1 + " e " + 5);
 			  	break;
-			}*/
+			}
 					
-			}	
+		}	
 		
-		public static void getShelvesList(){   //screen 2
+		public static void getShelvesList(){   //screen 1.2
 			
 			System.out.println("Lista de prateleiras"); 
 			
@@ -133,7 +133,7 @@ public class TextInterface {
 			shelfId.add(2);
 			shelfId.add(3);
 			
-			System.out.println("Lista de produtos: " + shelfId .toString());
+			System.out.println("Lista de produtos: " + shelfId.toString());
 			
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
@@ -170,19 +170,48 @@ public class TextInterface {
 							
 			}	
 		
-		public static void getNewProduct(){
-			System.out.println("Por favor insira os dados do novo produto");
-			//int input;
-			Scanner s = new Scanner(System.in);
-									
-			s.close();
+		public static void getNewProduct(){  //screen 1.1.1
 			
+			int inputproductVal;
+			double inputproductIVA;
+			double inputproductPVP;
+			
+			//new array?
+			
+				
+			
+			
+			
+			System.out.println("Por favor insira os dados do novo produto.");
+			
+			Scanner s1 = new Scanner(System.in);
+			System.out.println("Valor unitario de desconto:");
+			inputproductVal = s1.nextInt();
+			System.out.println("Valor unitario de desconto: " + inputproductVal);		
+			//add val to array
+			s1.close();
+					
+			Scanner s2 = new Scanner(System.in);
+			System.out.println("IVA:");
+			inputproductIVA = s2.nextDouble();
+			System.out.println("IVA: " + inputproductIVA);
+			//add IVA to array
+			s2.close();
+			
+			Scanner s3 = new Scanner(System.in);
+			System.out.println("PVP:");
+			inputproductPVP = s3.nextDouble();
+			System.out.println("PVP: " + inputproductPVP);
+			//add PVP to array
+			s3.close();
+			
+						
+			//int input;
 			
 			// productVal.add(inputVal);
 			// productIVA.add(inputIVA);
 			// productPVP.add(inputPVP);
-			
-			
+						
 		}
 		
 		/*public static void getViewProductDetails(){
@@ -191,6 +220,22 @@ public class TextInterface {
 			System.out.println("");
 			product[0]
 		}*/
+		
+		public static void getEditProduct(){
+			
+		}
+		public static void getViewProductDetails(){
+			
+		}
+		public static void getDeleteProduct(){
+			// scan o iput do user - index
+			// products = ArrayList.remove(product, index);
+			// system.out.printIn("nova lista de produtos" + ArrayList.toString(products))
+		}
+		
+		
+		
+		
 }	
 		
 		
