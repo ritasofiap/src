@@ -11,9 +11,6 @@ public class Product {
 	
 	//array products?
 	
-	
-	
-	
 	public Product (int productId, int productVal, double productIVA, double productPVP){
 		this.productId = productId;
 		this.productVal = productVal;

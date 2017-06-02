@@ -78,7 +78,7 @@ public class TextInterface {
 							
 		//	System.out.println("Lista de produtos"); //
 	
-			ArrayList<Integer> productId = new ArrayList<>();
+			ArrayList<Integer> productId = new ArrayList<>(); //teste
 			
 			productId.add(1);
 			productId.add(2);
@@ -111,7 +111,7 @@ public class TextInterface {
 				getViewProductDetails();
 				break;
 			case 4: 
-				getDeleteProduct();
+				getRemoveProduct();
 				break;
 			case 5: 
 				welcome();
@@ -123,6 +123,8 @@ public class TextInterface {
 					
 		}	
 		
+		
+		
 		public static void getShelvesList(){   //screen 1.2
 			
 			System.out.println("Lista de prateleiras"); 
@@ -133,7 +135,8 @@ public class TextInterface {
 			shelfId.add(2);
 			shelfId.add(3);
 			
-			System.out.println("Lista de produtos: " + shelfId.toString());
+			System.out.println("Lista de prateleiras: " + shelfId.toString());
+			
 			
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
@@ -158,7 +161,7 @@ public class TextInterface {
 				getViewShelfDetails();
 				break;
 			case 4: 
-				getDeleteshelf();
+				getRemoveShelf();
 				break;
 			case 5: 
 				getBack();
@@ -175,59 +178,61 @@ public class TextInterface {
 			int inputproductVal;
 			double inputproductIVA;
 			double inputproductPVP;
-			
-			//new array?
-			
-				
-			
-			
-			
+						
 			System.out.println("Por favor insira os dados do novo produto.");
 			
+			ArrayList<Integer> productVal = new ArrayList<>();
+			ArrayList<Double> productIVA = new ArrayList<>();
+			ArrayList<Double> productPVP = new ArrayList<>();			
+			
+			
+			//Val
 			Scanner s1 = new Scanner(System.in);
 			System.out.println("Valor unitario de desconto:");
+			
 			inputproductVal = s1.nextInt();
 			System.out.println("Valor unitario de desconto: " + inputproductVal);		
-			//add val to array
+			productVal.add(inputproductVal); //add to array
 			s1.close();
 					
+			//IVA
 			Scanner s2 = new Scanner(System.in);
 			System.out.println("IVA:");
+			
 			inputproductIVA = s2.nextDouble();
 			System.out.println("IVA: " + inputproductIVA);
-			//add IVA to array
+			productIVA.add(inputproductIVA); //add to array
 			s2.close();
 			
+			//PVP
 			Scanner s3 = new Scanner(System.in);
 			System.out.println("PVP:");
+			
 			inputproductPVP = s3.nextDouble();
 			System.out.println("PVP: " + inputproductPVP);
-			//add PVP to array
+			productPVP.add(inputproductPVP); //add to array
 			s3.close();
-			
-						
-			//int input;
-			
-			// productVal.add(inputVal);
-			// productIVA.add(inputIVA);
-			// productPVP.add(inputPVP);
-						
+								
 		}
 		
 		/*public static void getViewProductDetails(){
 			return productId; //array?
 			
 			System.out.println("");
-			product[0]
+			product[index]
 		}*/
 		
 		public static void getEditProduct(){
 			
 		}
+		
+		
 		public static void getViewProductDetails(){
 			
 		}
-		public static void getDeleteProduct(){
+		
+		
+		public static void getRemoveProduct(){
 			// scan o iput do user - index
 			// products = ArrayList.remove(product, index);
 			// system.out.printIn("nova lista de produtos" + ArrayList.toString(products))
