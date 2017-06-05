@@ -1,7 +1,13 @@
 package io.altar.jseproject.textinterface;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+
+import io.altar.jseproject.entity.ProductRepository;
+import io.altar.jseproject.model.Product;
+
+
 
 
 public class TextInterface {
@@ -78,13 +84,20 @@ public class TextInterface {
 							
 		//	System.out.println("Lista de produtos"); //
 	
-			ArrayList<Integer> productId = new ArrayList<>(); //teste
+			ProductRepository.getInstance();
 			
-			productId.add(1);
-			productId.add(2);
-			productId.add(3);
+			//System.out.println("Lista de produtos: " + productId.toString());
+
+			/*for(Map.Entry<Integer, Product> entry:map.entrySet()){
+				Product p = entry.getValue();
+				System.out.println("Lista de produtos: " + p.productId);
+			}*/
 			
-			System.out.println("Lista de produtos: " + productId.toString());
+			
+			
+			
+			System.out.println("Lista de produtos: " + map);
+			
 			
 			//novas opcoes:
 			
@@ -129,13 +142,18 @@ public class TextInterface {
 			
 			System.out.println("Lista de prateleiras"); 
 			
-			ArrayList<Integer> shelfId = new ArrayList<>();
+			/*ArrayList<Integer> shelfId = new ArrayList<>();
 			
 			shelfId.add(1);
 			shelfId.add(2);
 			shelfId.add(3);
 			
-			System.out.println("Lista de prateleiras: " + shelfId.toString());
+			System.out.println("Lista de prateleiras: " + shelfId.toString());*/
+			
+			//productId, int productVal, double productIVA, double productPVP
+			
+			
+		
 			
 			
 			System.out.println("Por favor selecione uma das seguintes opcoes:");

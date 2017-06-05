@@ -1,5 +1,7 @@
 package io.altar.jseproject.model;
 
+
+
 public class Product {
 
 	private int productId;
@@ -10,6 +12,10 @@ public class Product {
 	
 	
 	//array products?
+	
+s
+	
+		
 	
 	public Product (int productId, int productVal, double productIVA, double productPVP){
 		this.productId = productId;
@@ -49,6 +55,7 @@ public class Product {
 	public void setProductPVP(double productPVP) {
 		this.productPVP = productPVP;
 	}
+	
 	
 }
 
