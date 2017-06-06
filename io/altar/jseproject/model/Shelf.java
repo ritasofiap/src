@@ -1,6 +1,6 @@
 package io.altar.jseproject.model;
 
-import java.util.LinkedHashMap;
+
 
 public class Shelf extends Entity{
 
@@ -10,14 +10,6 @@ public class Shelf extends Entity{
 	//private int shelfProducts;
 	private double shelfDailyPCost;
 
-	
-	LinkedHashMap<Integer, Shelf> map = new LinkedHashMap<Integer, Shelf>();
-	
-	Shelf s1 = new Shelf(101, 201, 10, 5.99);
-	Shelf s2 = new Shelf(102, 202, 10, 5.99);
-	
-	
-	
 	public Shelf (int shelfId, int shelfLocal, int shelfCapacity, double shelfDailyPCost){
 		this.shelfId = shelfId;
 		this.shelfLocal = shelfLocal;
@@ -58,4 +50,3 @@ public class Shelf extends Entity{
 	
 	
 }
-

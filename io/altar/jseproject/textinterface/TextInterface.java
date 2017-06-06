@@ -1,11 +1,12 @@
 package io.altar.jseproject.textinterface;
 
-package io.altar.jseproject.repositories.ProductRepositoty;
-package io.altar.jseproject.repositories.ShelfRepositoty;
-
-//import java.util.ArrayList;
-//import java.util.Map;
 import java.util.Scanner;
+
+import repositories.ProductRepository;
+import repositories.EntityRepository;
+import io.altar.jseproject.model.Product;
+import io.altar.jseproject.model.Shelf;
+import io.altar.jseproject.test.Scan;
 
 public class TextInterface {
 	
@@ -37,18 +38,8 @@ public class TextInterface {
 				}
 				}
 			}
-								
 		
-			/*while( !s.hasNextInt() ){ //enquanto nao tiver numero inteiro
-				System.out.println("Por favor introduza um caracter numerico.");
-				s.next(); //pedir uma nova insercao
-				}
-				input = s.nextInt(); //recolher o input valido
-				s.close();
-				return input;
-			}*/
 	
-		
 		public static void welcome(){  //screen 1
 				
 		System.out.println("Por favor selecione uma das seguintes opcoes:");
@@ -73,15 +64,15 @@ public class TextInterface {
 				break;
 			default: 
 				System.out.println("Por favor introduza um numero entre " + 1 + " e " + 3);
-				s.nextInt();
+				//s.nextInt();
+				
 		}
 		
 		}	
 		
 		public static void getProductListId(){   //screen 1.1
 							
-
-			System.out.println("Lista de produtos:";
+			System.out.println("Lista de produtos");
 			//ProductRepository.getInstance();
 			
 			//System.out.println("Lista de produtos: " + productId.toString());
@@ -91,14 +82,7 @@ public class TextInterface {
 				System.out.println("Lista de produtos: " + p.productId);
 			}*/
 			
-			
-			
-			
-			
-			
-			
-			//novas opcoes:
-			
+						
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar novo produto");
 			System.out.println("2.Editar um produto existente");
@@ -129,11 +113,10 @@ public class TextInterface {
 				break;
 			default: 
 			  	System.out.println("Por favor introduza um numero entre " + 1 + " e " + 5);
-			  	s.nextInt();
+			  	//s.nextInt();
 			}
 					
 		}	
-		
 		
 		
 		public static void getShelvesList(){   //screen 1.2
@@ -149,11 +132,7 @@ public class TextInterface {
 			System.out.println("Lista de prateleiras: " + shelfId.toString());*/
 			
 			//productId, int productVal, double productIVA, double productPVP
-			
-			
-		
-			
-			
+							
 			System.out.println("Por favor selecione uma das seguintes opcoes:");
 			System.out.println("1.Criar nova lista");
 			System.out.println("2.Editar uma prateleira existente");
@@ -197,37 +176,34 @@ public class TextInterface {
 						
 			System.out.println("Por favor insira os dados do novo produto.");
 			
-			ArrayList<Integer> productVal = new ArrayList<>();
-			ArrayList<Double> productIVA = new ArrayList<>();
-			ArrayList<Double> productPVP = new ArrayList<>();			
-			
-			
+		
 			//Val
-			Scanner s1 = new Scanner(System.in);
+			//Scan.scanner();
 			System.out.println("Valor unitario de desconto:");
 			
 			inputproductVal = s1.nextInt();
 			System.out.println("Valor unitario de desconto: " + inputproductVal);		
+			
 			productVal.add(inputproductVal); //add to array
-			s1.close();
+		
 					
 			//IVA
-			Scanner s2 = new Scanner(System.in);
+			//Scan.scanner();
 			System.out.println("IVA:");
 			
 			inputproductIVA = s2.nextDouble();
 			System.out.println("IVA: " + inputproductIVA);
 			productIVA.add(inputproductIVA); //add to array
-			s2.close();
+		
 			
 			//PVP
-			Scanner s3 = new Scanner(System.in);
+			//Scan.scanner();
 			System.out.println("PVP:");
 			
 			inputproductPVP = s3.nextDouble();
 			System.out.println("PVP: " + inputproductPVP);
 			productPVP.add(inputproductPVP); //add to array
-			s3.close();
+			
 								
 		}
 		
@@ -239,11 +215,24 @@ public class TextInterface {
 		}*/
 		
 		public static void getEditProduct(){
+			double newProductPVP = 0;
+			long entityId = 0;
+			double newProductIVA = 0;
+			int newProductVal = 0;
+			
+			ProductRepository.getInstance().findByEntityId(entityId).setProductPVP(newProductPVP);
+			
+			ProductRepository.getInstance().findByEntityId(entityId).setProductIVA(newProductIVA);
+			
+			ProductRepository.getInstance().findByEntityId(entityId).setProductVal(newProductVal);
 			
 		}
 		
 		
 		public static void getViewProductDetails(){
+			
+			ProductRepository.getInstance();
+			
 			
 		}
 		
@@ -258,7 +247,6 @@ public class TextInterface {
 		
 		
 }	
-		
 		
 		
 	

@@ -6,8 +6,8 @@ public class Entity {
 		
 		public long getEntityId(){
 	
-		}
-			return entityId;
+		
+		return entityId;
 		}
 		
 		public void setEntityId(long entityId){
