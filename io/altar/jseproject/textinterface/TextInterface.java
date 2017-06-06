@@ -1,14 +1,11 @@
 package io.altar.jseproject.textinterface;
 
-import java.util.ArrayList;
-import java.util.Map;
+package io.altar.jseproject.repositories.ProductRepositoty;
+package io.altar.jseproject.repositories.ShelfRepositoty;
+
+//import java.util.ArrayList;
+//import java.util.Map;
 import java.util.Scanner;
-
-import io.altar.jseproject.entity.ProductRepository;
-import io.altar.jseproject.model.Product;
-
-
-
 
 public class TextInterface {
 	
@@ -31,11 +28,12 @@ public class TextInterface {
 					}
 					else{
 						System.out.println("Por favor introduza um numero entre " + min + " e " + max);
+						s.nextInt();
 					}
 				}
 				else{
 					System.out.println("Por favor introduza um caracter numerico.");
-					s.next();
+					s.nextInt();
 				}
 				}
 			}
@@ -65,7 +63,7 @@ public class TextInterface {
 		switch (input) {
 		
 			case 1: 
-				getProductList();
+				getProductListId();
 				break;
 			case 2: 
 				getShelvesList();
@@ -75,16 +73,16 @@ public class TextInterface {
 				break;
 			default: 
 				System.out.println("Por favor introduza um numero entre " + 1 + " e " + 3);
-				break;
+				s.nextInt();
 		}
-			
+		
 		}	
 		
-		public static void getProductList(){   //screen 1.1
+		public static void getProductListId(){   //screen 1.1
 							
-		//	System.out.println("Lista de produtos"); //
-	
-			ProductRepository.getInstance();
+
+			System.out.println("Lista de produtos:";
+			//ProductRepository.getInstance();
 			
 			//System.out.println("Lista de produtos: " + productId.toString());
 
@@ -96,7 +94,7 @@ public class TextInterface {
 			
 			
 			
-			System.out.println("Lista de produtos: " + map);
+			
 			
 			
 			//novas opcoes:
@@ -131,7 +129,7 @@ public class TextInterface {
 				break;
 			default: 
 			  	System.out.println("Por favor introduza um numero entre " + 1 + " e " + 5);
-			  	break;
+			  	s.nextInt();
 			}
 					
 		}	
@@ -186,7 +184,7 @@ public class TextInterface {
 				break;
 			default: 
 				System.out.println("Por favor introduza um numero entre" + 1 + "e" + 5);
-			 	break;
+			 	s.nextInt();
 			}*/
 							
 			}	

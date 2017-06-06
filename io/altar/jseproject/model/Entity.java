@@ -2,29 +2,16 @@ package io.altar.jseproject.model;
 
 public class Entity {
 
-		private int productId;;
-		private int shelfId;
+		private long entityId;
 		
-		public Entity(int productId, int shelfId) {
-			super();
-			this.productId = productId;
-			this.shelfId = shelfId;
+		public long getEntityId(){
+	
 		}
-
-		public int getProductId() {
-			return productId;
+			return entityId;
 		}
-
-		public void setProductId(int productId) {
-			this.productId = productId;
-		}
-
-		public int getShelfId() {
-			return shelfId;
-		}
-
-		public void setShelfId(int shelfId) {
-			this.shelfId = shelfId;
+		
+		public void setEntityId(long entityId){
+			this.entityId = entityId;
 		}
 
 		
