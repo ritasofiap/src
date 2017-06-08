@@ -5,14 +5,22 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import io.altar.jseproject.model.Entity;
+//import io.altar.jseproject.model.Product;
 
 import java.util.Collection;
 
 
 public abstract class EntityRepository<E extends Entity> {
 	
-	public LinkedHashMap<Integer, E> entities = new LinkedHashMap<>();  //long ou integer
+	private LinkedHashMap<Integer, E> entities = new LinkedHashMap<>();  //long ou integer
 	
+			
+	/* EntityRepository(LinkedHashMap<Integer, E> entities) {
+		super();
+		this.entities = entities;
+	}*/
+
+
 	public void setEntities(LinkedHashMap<Integer, E> entities) {
 		this.entities = entities;
 	}
@@ -52,7 +60,6 @@ public abstract class EntityRepository<E extends Entity> {
 		entities.put(newEntityId, entity);		
 	}
 	
-		
 	
 	//edit
 	public void editEntity(E entity){

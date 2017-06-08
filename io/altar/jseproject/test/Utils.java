@@ -39,7 +39,7 @@ public abstract class Utils {
 		
 		while (true) {
 			EntityId = s.nextInt();
-			if(EntityId == 0 || entities.containsKey(EntityId)) { //0?
+			if(EntityId == 0 || entities.containsKey(EntityId)) { //check if exists
 				return EntityId;
 			}else{
 				System.out.println("Por favor escolha um ID valido.");
