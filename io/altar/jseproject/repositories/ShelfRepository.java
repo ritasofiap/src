@@ -1,9 +1,10 @@
 package io.altar.jseproject.repositories;
-package io.altar.jseproject.model.shelf;
+
+import io.altar.jseproject.model.Entity;
 
 public class ShelfRepository extends Entity{
 
-private static final ShelftRepository INSTANCE = new ShelfRepository();
+private static final ShelfRepository INSTANCE = new ShelfRepository();
 	
 	private ShelfRepository(){	
 	}

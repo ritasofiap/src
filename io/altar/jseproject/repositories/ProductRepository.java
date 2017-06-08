@@ -1,8 +1,4 @@
 package io.altar.jseproject.repositories;
-package io.altar.jseproject.model.product;
-
-
-import java.util.LinkedHashMap;
 
 import io.altar.jseproject.model.Product;
 
@@ -18,5 +14,13 @@ public class ProductRepository extends EntityRepository<Product> {
 		
 		return INSTANCE; 
 	}
+	
+	public static void editEntity(Integer entityId, Integer productVal, Double productIVA, Double productPVP) {
+		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductVal(productVal);
+		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductIVA(productIVA);
+		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductPVP(productPVP);
+	}
+
+
 	
 }

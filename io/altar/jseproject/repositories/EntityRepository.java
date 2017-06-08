@@ -1,51 +1,105 @@
 package io.altar.jseproject.repositories;
-package io.altar.jseproject.model.Entity;
+
 
 import java.util.LinkedHashMap;
-import java.util.Colection;
+import java.util.Set;
+
+import io.altar.jseproject.model.Entity;
+
+import java.util.Collection;
 
 
 public abstract class EntityRepository<E extends Entity> {
 	
-	private LinkedHashMap<long, E> entities = new LinkedHashMap<>();  //long ou integer
+	public LinkedHashMap<Integer, E> entities = new LinkedHashMap<>();  //long ou integer
 	
-	private int index = 0;
+	public void setEntities(LinkedHashMap<Integer, E> entities) {
+		this.entities = entities;
+	}
+
+	private static int index = 0;
 	
-	protected long getNextEntityId(){  //long ou int
+	public static int getNextEntityId(){  //long ou int
 		return ++index;
 	}
 	
 	
 	//read
-	public E findByEntityId(long Id){
+	public E findByEntityId(Integer entityId){
 		return entities.get(entityId);
 	}
 	
 	
 	//show
+		public void displayEntity(Integer key){
+			System.out.println(entities.get(key).toString());
+		}
+	
+	//get product/shelf id 
+	/*public E get(Integer entityId){
+		return entities.get(entityId);
+	}*/
+	
 	public Collection<E> getEntities(){
 		return entities.values();
 	}
 	
 	
 	//add
-	public void addEntityId(E object){
-		long newEntityId = getNextEntityId();
-		object.setEntityId(newEntityId);
-		entities.put(newEntityId, object);		
+	public void addEntityId(E entity){
+		int newEntityId = getNextEntityId();
+		entity.setEntityId(newEntityId);
+		entities.put(newEntityId, entity);		
 	}
 	
-	
+		
 	
 	//edit
-	public void editEntity(E object){
-		entities.put(object.getEntityId(), object);  //getId()
+	public void editEntity(E entity){
+		entities.put(entity.getEntityId(), entity);  //getId()
 	}
+	//public void alterElement(){}
 	
 	
 	//remove
-	public void removeEntity(long Id){
+	public void removeEntity(Integer entityId){
 		entities.remove(entityId);
 	}
+	
+		
+	//check if empty
+	public boolean isEmpty(){
+		return entities.isEmpty();
+	}
+	
+	//entity key
+	public Set<Integer> keySet(){
+		return entities.keySet();
+	}
+		
+	//
+	public boolean containsKey(Integer key){
+		return entities.containsKey(key);
+	}
+	
+		
+	
+	
+	
+	
+	//...
+	public String getList(String listType){
+		String text = String.format("Lista de entidades:", listType);
+		if (!entities.isEmpty()) {
+			for (Integer EntityId : entities.keySet()) {
+				text += entities.get(EntityId).toString();
+			}
+		} else {
+			text += "Empty";
+		}
+		return text;
+	}
+	
+
 		
 }
