@@ -8,13 +8,13 @@ public class Shelf extends Entity{
 	private int shelfLocal;
 	private int shelfCapacity;
 	//private int shelfProducts;
-	private double shelfDailyPCost;
+	private double shelfDailyCost;
 
-	public Shelf (int shelfId, int shelfLocal, int shelfCapacity, double shelfDailyPCost){
+	public Shelf (int shelfId, int shelfLocal, int shelfCapacity, double shelfDailyCost){
 		this.shelfId = shelfId;
 		this.shelfLocal = shelfLocal;
 		this.shelfCapacity = shelfCapacity;
-		this.shelfDailyPCost = shelfDailyPCost;
+		this.shelfDailyCost = shelfDailyCost;
 	}
 	
 	
@@ -26,12 +26,12 @@ public class Shelf extends Entity{
 		return shelfLocal;
 	}
 	
-	public int getshelfCapacity() {
+	public int getShelfCapacity() {
 		return shelfCapacity;
 	}
 	
-	public double getshelfDailyPCost() {
-		return shelfDailyPCost;
+	public double getShelfDailyCost() {
+		return shelfDailyCost;
 	}
 	
 
@@ -41,17 +41,17 @@ public class Shelf extends Entity{
 	public void setShelfLocal(int shelfLocal) {
 		this.shelfLocal = shelfLocal;
 	}
-	public void setshelfCapacity(int shelfCapacity) {
+	public void setShelfCapacity(int shelfCapacity) {
 		this.shelfCapacity = shelfCapacity;
 	}
-	public void setshelfDailyPCost(double shelfDailyPCost) {
-		this.shelfDailyPCost = shelfDailyPCost;
+	public void setShelfDailyCost(double shelfDailyCost) {
+		this.shelfDailyCost = shelfDailyCost;
 	}
 	
 	
 	@Override
 	public String toString(){
-		return "Id: "+ getEntityId() + ", Localization: " + shelfLocal + ", Capacity: " + shelfCapacity  + ", Daily Cost: " + shelfDailyPCost;
+		return "Id: "+ getEntityId() + ", Localization: " + shelfLocal + ", Capacity: " + shelfCapacity  + ", Daily Cost: " + shelfDailyCost;
 	}
 	
 	

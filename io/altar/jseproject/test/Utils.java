@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 import io.altar.jseproject.model.Entity;
 import io.altar.jseproject.model.Product;
+import io.altar.jseproject.model.Shelf;
 import io.altar.jseproject.repositories.EntityRepository;
 import io.altar.jseproject.repositories.ProductRepository;
+import io.altar.jseproject.repositories.ShelfRepository;
 
 public abstract class Utils {
 	
@@ -36,6 +38,22 @@ public abstract class Utils {
 		int EntityId = 0;
 		EntityRepository<? extends Entity> entities = null;
 		entities = (EntityRepository<Product>)ProductRepository.getInstance();
+		
+		while (true) {
+			EntityId = s.nextInt();
+			if(EntityId == 0 || entities.containsKey(EntityId)) { //check if exists
+				return EntityId;
+			}else{
+				System.out.println("Por favor escolha um ID valido.");
+			}
+		}
+	}
+	
+public static int getShelfInputId(Scanner s){
+		
+		int EntityId = 0;
+		EntityRepository<? extends Entity> entities = null;
+		entities = (EntityRepository<Shelf>)ShelfRepository.getInstance();
 		
 		while (true) {
 			EntityId = s.nextInt();

@@ -1,17 +1,18 @@
 package io.altar.jseproject.model;
 
 
+
 public class Product extends Entity{
 
-	private int productId;
+	//private int productId;
 	//private tipo productShelves; array list
 	private int productVal;
 	private double productIVA;
 	private double productPVP;
 	
 	
-	public Product (int productId, int productVal, double productIVA, double productPVP){
-		this.productId = productId;
+	public Product (int productVal, double productIVA, double productPVP){
+		//this.productId = productId;
 		this.productVal = productVal;
 		this.productIVA = productIVA;
 		this.productPVP = productPVP;
@@ -19,13 +20,13 @@ public class Product extends Entity{
 	
 	
 	//---Id
-	public int getProductId() {
+	/*public int getProductId() {
 		return productId;
 	}
 	
 	public Integer getEntityId() {
 		return getEntityId();
-	}
+	}*/
 	//---
 
 	
@@ -41,9 +42,9 @@ public class Product extends Entity{
 		return productPVP;
 	}
 	
-	public void setProductId(int productId) {
+	/*public void setProductId(int productId) {
 	this.productId = productId;
-	}
+	}*/
 	
 	public void setProductVal(int productVal) {
 		this.productVal = productVal;
@@ -59,7 +60,7 @@ public class Product extends Entity{
 	
 	@Override
 	public String toString(){
-		return "Id: "+ getEntityId() + ", Val: " + productVal + ", IVA: " + productIVA  + ", PVP: " + productPVP;
+		return "ID: "+ getEntityId() + ", Val: " + productVal + ", IVA: " + productIVA  + ", PVP: " + productPVP;
 	}
 	
 }

@@ -1,16 +1,12 @@
 package io.altar.jseproject.textinterface;
 
 import java.util.Scanner;
-//import java.util.LinkedHashMap;
 import io.altar.jseproject.test.Utils;
-
+import io.altar.jseproject.model.Entity;
 import io.altar.jseproject.model.Product;
-//import io.altar.jseproject.model.Shelf;
-
-//import io.altar.jseproject.repositories.EntityRepository;
+import io.altar.jseproject.model.Shelf;
 import io.altar.jseproject.repositories.ProductRepository;
 import io.altar.jseproject.repositories.ShelfRepository;
-
 
 
 public class TextInterface {	
@@ -36,7 +32,7 @@ public class TextInterface {
 				ProductListId();
 				break;
 			case 2: 
-				ShelvesList();
+				ShelvesListId();
 				break;
 			case 3: 
 				welcome();
@@ -48,7 +44,8 @@ public class TextInterface {
 		}	
 		}
 		
-		
+//PRODUCT//	.....................................................................................................................................		
+	
 		public static void ProductListId(){   //screen 1.1
 							
 				System.out.println("Lista de produtos");
@@ -58,17 +55,15 @@ public class TextInterface {
 				}
 				else{
 							for (Integer key : productList.keySet()) {
-							    System.out.println("Id = " + key); //key
+							    System.out.println("ID: " + key); //key
 							}
 							
-							/*for (E product : productList.values()) {
-								product.display();							
-							}
+												
+							//
 							
-							//ou
-							
-							for(Integer entityId : productList.keySet()){
-								System.out.println(productList.findByEntityId(entityId).toString());*/
+							//for(Integer entityId : productList.keySet()){
+							//	System.out.println(productList.findByEntityId(entityId).toString());
+							//}
 				}
 										
 			//System.out.println("Lista de produtos: " + productId.toString());
@@ -115,14 +110,14 @@ public class TextInterface {
 		}
 		}	
 	
-			
+	//..................................................................................................................................
+		
 		public static void NewProduct(){  //screen 1.1.1
 			
 			try (Scanner s = new Scanner(System.in)){
 				
-				int EntityId = ProductRepository.getNextEntityId(); //Index++
 				
-
+				
 				System.out.println("Por favor insira os dados do novo produto.");
 								
 				System.out.println("Valor unitario de desconto:");
@@ -137,7 +132,11 @@ public class TextInterface {
 				double inputproductPVP = Utils.getDataInputDouble(s);
 				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductPVP(inputproductPVP);
 			
-				Product newProduct = new Product(EntityId, inputproductVal, inputproductIVA, inputproductPVP);
+				//int EntityId = ProductRepository.getNextEntityId(); //Index++
+				
+				Product newProduct = new Product(inputproductVal, inputproductIVA, inputproductPVP);
+				
+				productList.addEntityId(newProduct);
 				
 				//EntityRepository.setEntities(E newProduct);
 								
@@ -145,7 +144,7 @@ public class TextInterface {
 				
 				//ProductRepository.getInstance().addEntityId(newProduct);
 								
-				System.out.println("Detalhes do Produto: "+ "ID = " + EntityId + " | Val = " + inputproductVal + " | IVA = " + inputproductIVA  + " | PVP = " + inputproductPVP);
+				System.out.println("Detalhes do Produto: "+ "ID = " + Entity.getEntityId() + " | Val = " + inputproductVal + " | IVA = " + inputproductIVA  + " | PVP = " + inputproductPVP);
 				
 				ProductListId();			
 			}
@@ -163,6 +162,7 @@ public class TextInterface {
 
 		}
 		
+	//..................................................................................................................................
 		
 		public static void EditProduct(){  //screen 1.1.2
 			
@@ -219,11 +219,13 @@ public class TextInterface {
 				}
 			}		
 		}
+	
+	//..................................................................................................................................	
 		
 		public static void ViewProductDetails(){ //screen 1.1.3
 			
 			if (productList.isEmpty()) {
-				System.out.println("A lista de produtos est� vazia.");
+				System.out.println("A lista de produtos esta vazia.");
 				ProductListId(); //escolher outra opcao
 				
 			}else{
@@ -235,8 +237,9 @@ public class TextInterface {
 					System.out.println("Escolheu o seguinte produto:");
 					productList.displayEntity(EntityId);
 								
-						
-					}					
+					ProductListId();	
+					}	
+			
 				}
 			}
 			
@@ -245,6 +248,7 @@ public class TextInterface {
 			//ProductRepository.getInstance().findByEntityId(entityId);
 			//check if id exists
 		
+	//..................................................................................................................................	
 		
 		public static void RemoveProduct(){  //screen 1.1.4
 					
@@ -262,6 +266,7 @@ public class TextInterface {
 					productList.displayEntity(EntityId);
 					
 					System.out.println("Confirma a remocao deste produto? s/n");
+					
 					while (true) {
 										
 						String answer = s.nextLine();
@@ -274,7 +279,10 @@ public class TextInterface {
 						} else {
 							System.out.println("Resposta invalida. Por favor insira s ou n");
 						}
-					}					
+						
+						//ProductListId();
+					}	
+
 				}
 			}
 			
@@ -287,17 +295,18 @@ public class TextInterface {
 		
 		}
 		
-		//SHELF//	
 		
-		public static void ShelvesList(){   //screen 1.2
+		
+//SHELF//	..................................................................................................................................
+		public static void ShelvesListId(){   //screen 1.2
 						
 			if(shelfList.isEmpty()){
 				System.out.println("A lista de prateleiras esta vazia.");
 			}
 			else{
-						for (Integer key : shelfList.keySet()) {
-						    System.out.println("Id = " + key); //key
-						}
+					for (Integer key : shelfList.keySet()) {
+					   System.out.println("Id = " + key); //key
+					}
 			}
 		
 			System.out.println("Lista de prateleiras"); 
@@ -318,16 +327,16 @@ public class TextInterface {
 		
 				switch (input) {
 				case 1: 
-					getNewShelf();
+					NewShelf();
 					break;
 				case 2: 
-					getEditshelf();
+					Editshelf();
 					break;
 				case 3: 
-					getViewShelfDetails();
+					ViewShelfDetails();
 					break;
 				case 4: 
-					getRemoveShelf();
+					RemoveShelf();
 					break;
 				case 5: 
 					welcome();
@@ -335,9 +344,109 @@ public class TextInterface {
 					default: 
 		  	System.out.println("Por favor introduza um numero entre " + 1 + " e " + 5);
 		  	s.nextInt();
+				}
+			}
+		}	
+	
+	//..................................................................................................................................	
+		
+		public static void NewShelf(){
+			try (Scanner s = new Scanner(System.in)){
+				
+				int EntityId = ShelfRepository.getNextEntityId(); //Index++
+				
+				System.out.println("Por favor insira os dados da nova prateleira.");
+								
+				System.out.println("Localizacao:");
+				int inputshelfLocal = Utils.getDataInputInt(s);
+				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductVal(inputproductVal);
+				
+				System.out.println("Capacidade:");
+				int inputshelfCapacity = Utils.getDataInputInt(s);
+				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductIVA(inputproductIVA);
+				
+				System.out.println("Custo diario:");
+				double inputshelfDailyPCost = Utils.getDataInputDouble(s);
+				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductPVP(inputproductPVP);
+			
+				Shelf newShelf = new Shelf(EntityId, inputshelfLocal, inputshelfCapacity, inputshelfDailyPCost);
+				
+				//EntityRepository.setEntities(E newProduct);
+								
+			//	EntityRepository.LinkedHashMap.put
+				
+				//ProductRepository.getInstance().addEntityId(newProduct);
+								
+				System.out.println("Detalhes da Prateleira: "+ "ID = " + EntityId + " | Localizacao = " + inputshelfLocal + " | Capacidade = " + inputshelfLocal  + " | Custo Diario = " + inputshelfDailyPCost);
+				
+				ShelvesListId();	
+			}
 		}
-	}
-	}	
+		
+	//..................................................................................................................................	
+		
+		public static void Editshelf(){
+			
+		}
+			
+		
+	//..................................................................................................................................	
+		
+		public static void ViewShelfDetails(){
+			if (shelfList.isEmpty()) {
+				System.out.println("A lista de prateleiras esta vazia.");
+				ShelvesListId(); //escolher outra opcao
+				
+			}else{
+				try (Scanner s = new Scanner(System.in)){
+					
+					System.out.println("Por favor indique a ID da pratleira que deseja inspecionar");
+					int EntityId = Utils.getShelfInputId(s);
+								
+					System.out.println("Escolheu a seguinte prateleira:");
+					shelfList.displayEntity(EntityId);
+								
+						
+					}					
+				}
+		}
+		
+	//..................................................................................................................................
+		
+		public static void RemoveShelf(){
+			if (shelfList.isEmpty()) {
+				System.out.println("A lista de pratleiras esta vazia.");
+				ShelvesListId(); //escolher outra opcao
+				
+			}else{
+				try (Scanner s = new Scanner(System.in)){
+					
+					System.out.println("Por favor indique a ID da prateleira que deseja remover.");
+					int EntityId = Utils.getShelfInputId(s);
+								
+					System.out.println("Escolheu a seguinte prateleira: ");
+					shelfList.displayEntity(EntityId);
+					
+					System.out.println("Confirma a remocao deste produto? s/n.");
+					
+					while (true) {
+										
+						String answer = s.nextLine();
+														
+						if (answer.equals("s")) {
+							shelfList.removeEntity(EntityId);
+							ShelvesListId(); //volta a ver a lista mas agora sem este prateleira e escolher novas options
+						} else if (answer.equals("n")) {
+							ShelvesListId(); //para podeer escolher outro shelf
+						} else {
+							System.out.println("Resposta invalida. Por favor insira s ou n");
+						}
+					}					
+				}
+			}
+		}
+		
+		
 		
 }	
 		
