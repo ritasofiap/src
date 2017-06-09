@@ -125,7 +125,7 @@ public class TextInterface {
 				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductVal(inputproductVal);
 				
 				System.out.println("IVA (6, 13 ou 23%):");
-				double inputproductIVA = Utils.getDataInputDouble(s);
+				double inputproductIVA = Utils.getDataInputIVA(s);
 				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductIVA(inputproductIVA);
 				
 				System.out.println("PVP:");
@@ -138,13 +138,10 @@ public class TextInterface {
 				
 				productList.addEntityId(newProduct);
 				
-				//EntityRepository.setEntities(E newProduct);
-								
-			//	EntityRepository.LinkedHashMap.put
-				
 				//ProductRepository.getInstance().addEntityId(newProduct);
-								
-				System.out.println("Detalhes do Produto: "+ "ID = " + Entity.getEntityId() + " | Val = " + inputproductVal + " | IVA = " + inputproductIVA  + " | PVP = " + inputproductPVP);
+					
+					
+				System.out.println("Detalhes do Produto: "+ "Product ID = " + newProduct.key() + " | Val = " + inputproductVal + " | IVA = " + inputproductIVA  + " | PVP = " + inputproductPVP);
 				
 				ProductListId();			
 			}
@@ -377,7 +374,7 @@ public class TextInterface {
 				
 				//ProductRepository.getInstance().addEntityId(newProduct);
 								
-				System.out.println("Detalhes da Prateleira: "+ "ID = " + EntityId + " | Localizacao = " + inputshelfLocal + " | Capacidade = " + inputshelfLocal  + " | Custo Diario = " + inputshelfDailyPCost);
+				System.out.println("Detalhes da Prateleira: "+ "Shelf ID = " + EntityId + " | Localizacao = " + inputshelfLocal + " | Capacidade = " + inputshelfLocal  + " | Custo Diario = " + inputshelfDailyPCost);
 				
 				ShelvesListId();	
 			}

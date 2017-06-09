@@ -60,7 +60,7 @@ public class Product extends Entity{
 	
 	@Override
 	public String toString(){
-		return "ID: "+ getEntityId() + ", Val: " + productVal + ", IVA: " + productIVA  + ", PVP: " + productPVP;
+		return "Product ID: "+ getEntityId() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP;
 	}
 	
 }

@@ -95,7 +95,25 @@ public static int getShelfInputId(Scanner s){
 		}
 	}
 	
-	
+	public static double getDataInputIVA(Scanner s) {	
+		
+		double inputDouble = 0;		
+		while(true){ //so termina qdo return
+			if(s.hasNextDouble()){
+				inputDouble = s.nextDouble();
+				
+				if(inputDouble == 6 || inputDouble == 13 || inputDouble == 23){
+				
+				return inputDouble;
+				}else{
+					System.out.println("Por favor introduza um valor de IVA de 6, 13 ou 23%.");
+				}
+			}
+			else{
+				System.out.println("Por favor introduza um caracter numerico.");
+			}
+		}
+	}
 	
 	
 }
