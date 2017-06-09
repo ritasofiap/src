@@ -20,14 +20,14 @@ public abstract class EntityRepository<E extends Entity> {
 	}*/
 
 
-	public void setEntities(LinkedHashMap<Integer, E> entities) {
+	 public void setEntities(LinkedHashMap<Integer, E> entities) {
 		this.entities = entities;
 	}
 	
 	
-	private static int index = 0;
+	private int index = 0; //tava static
 	
-	public static int getNextEntityId(){  //long ou int
+	public int getNextEntityId(){  //long ou int  //tava static
 		return ++index;
 	}
 	
@@ -57,7 +57,7 @@ public abstract class EntityRepository<E extends Entity> {
 	public void addEntityId(E entity){
 		int newEntityId = getNextEntityId();
 		entity.setEntityId(newEntityId);
-		entities.put(newEntityId, entity);		
+		entities.put(entity.getEntityId(), entity);		
 	}
 	
 	/*	
@@ -68,11 +68,17 @@ public abstract class EntityRepository<E extends Entity> {
 	}
 	*/
 	
+	public int getEntityIndex(E entity){
+		return index;  
+	}
+	
+	
 	
 	
 	//edit
 	public void editEntity(E entity){
-		entities.put(Entity.getEntityId(), entity);  //getId()
+		
+		entities.put(index, entity);  //getId()
 	}
 	//public void alterElement(){}
 	

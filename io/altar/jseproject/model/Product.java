@@ -9,10 +9,12 @@ public class Product extends Entity{
 	private int productVal;
 	private double productIVA;
 	private double productPVP;
+	private String productName;
 	
 	
-	public Product (int productVal, double productIVA, double productPVP){
+	public Product (String productName, int productVal, double productIVA, double productPVP){
 		//this.productId = productId;
+		this.productName = productName;
 		this.productVal = productVal;
 		this.productIVA = productIVA;
 		this.productPVP = productPVP;
@@ -29,6 +31,9 @@ public class Product extends Entity{
 	}*/
 	//---
 
+	public String getProductName() {
+		return productName;
+	}
 	
 	public double getProductVal() {
 		return productVal;
@@ -46,6 +51,10 @@ public class Product extends Entity{
 	this.productId = productId;
 	}*/
 	
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	
 	public void setProductVal(int productVal) {
 		this.productVal = productVal;
 	}
@@ -60,7 +69,7 @@ public class Product extends Entity{
 	
 	@Override
 	public String toString(){
-		return "Product ID: "+ getEntityId() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP;
+		return "Product ID: "+ getEntityId() + " | Name: " + getProductName() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP;
 	}
 	
 }

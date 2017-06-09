@@ -65,11 +65,28 @@ public static int getShelfInputId(Scanner s){
 		}
 	}
 	
+	public static String getDataInputName(Scanner s) {	
 	
+		String inputString = "";		
+	
+		while(true){ 
+			if(s.hasNext()){
+				inputString = s.next();
+				return inputString;
+			}
+			else{
+				System.out.println("Por favor introduza um nome valido.");
+			}
+		}
+	}	
+
+
+
+
 	
 	public static int getDataInputInt(Scanner s) {	
 	
-		int inputInt =0;		
+		int inputInt = 0;		
 		while(true){ //so termina qdo return
 			if(s.hasNextInt()){
 				inputInt = s.nextInt();

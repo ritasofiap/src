@@ -2,7 +2,6 @@ package io.altar.jseproject.textinterface;
 
 import java.util.Scanner;
 import io.altar.jseproject.test.Utils;
-import io.altar.jseproject.model.Entity;
 import io.altar.jseproject.model.Product;
 import io.altar.jseproject.model.Shelf;
 import io.altar.jseproject.repositories.ProductRepository;
@@ -48,25 +47,25 @@ public class TextInterface {
 	
 		public static void ProductListId(){   //screen 1.1
 							
-				System.out.println("Lista de produtos");
+			
 			
 				if(productList.isEmpty()){
-					System.out.println("A lista de produtos esta vazia.");
+					System.out.println("A lista de produtos esta vazia. Por favor selecione outra opcao. \n");
 				}
 				else{
+					System.out.println("Lista de produtos: ");
+					
 							for (Integer key : productList.keySet()) {
-							    System.out.println("ID: " + key); //key
+							   // System.out.println("ID: " + key); //key
+								
+								productList.displayEntity(key);
 							}
-							
-												
-							//
-							
+											
 							//for(Integer entityId : productList.keySet()){
 							//	System.out.println(productList.findByEntityId(entityId).toString());
 							//}
+				System.out.println("\n");
 				}
-										
-			//System.out.println("Lista de produtos: " + productId.toString());
 
 			/*for(Map.Entry<Integer, Product> entry:map.entrySet()){
 				Product p = entry.getValue();
@@ -84,7 +83,7 @@ public class TextInterface {
 			
 			int input = Utils.getInput(1,5, s);
 			
-			System.out.println("Escolheu a opcao " + input + ".");
+			System.out.println("Escolheu a opcao " + input + ".\n");
 			
 			switch (input) {
 			
@@ -119,7 +118,11 @@ public class TextInterface {
 				
 				
 				System.out.println("Por favor insira os dados do novo produto.");
-								
+				
+				
+				System.out.println("Inserir nome do produto:");
+				String inputproductName = Utils.getDataInputName(s);
+												
 				System.out.println("Valor unitario de desconto:");
 				int inputproductVal = Utils.getDataInputInt(s);
 				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductVal(inputproductVal);
@@ -134,20 +137,25 @@ public class TextInterface {
 			
 				//int EntityId = ProductRepository.getNextEntityId(); //Index++
 				
-				Product newProduct = new Product(inputproductVal, inputproductIVA, inputproductPVP);
+				Product newProduct = new Product(inputproductName, inputproductVal, inputproductIVA, inputproductPVP);
 				
 				productList.addEntityId(newProduct);
 				
 				//ProductRepository.getInstance().addEntityId(newProduct);
 					
-					
-				System.out.println("Detalhes do Produto: "+ "Product ID = " + newProduct.key() + " | Val = " + inputproductVal + " | IVA = " + inputproductIVA  + " | PVP = " + inputproductPVP);
+				//for (Integer key : productList.keySet()) {
+					   // System.out.println("ID: " + key); //key
+					 //   productList.displayEntity(key);
+					//}
 				
-				ProductListId();			
+				int index = productList.getEntityIndex(newProduct); 
+				
+				System.out.println("Detalhes do Produto: " + "Product ID: " + index + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " | PVP = " + inputproductPVP + "\n");
+				
+				ProductListId();	
+			
 			}
-			
-			
-			
+	
 			//add to hashmap?
 			/*	EntityRepository.getEntities(LinkedHashMap<Int, E> product);
 			
@@ -156,16 +164,15 @@ public class TextInterface {
 			product.put(3, new Double(inputproductPVP));
 													
 			}*/
-
 		}
 		
-	//..................................................................................................................................
+		//..................................................................................................................................
 		
 		public static void EditProduct(){  //screen 1.1.2
 			
 			if (productList.isEmpty()) {
 				System.out.println("A lista de produtos esta vazia.");
-				ProductListId(); //escolher outra opcao
+				ProductListId(); //pa escolher outra opcao
 				
 			}else{
 				try (Scanner s = new Scanner(System.in)){
@@ -183,34 +190,36 @@ public class TextInterface {
 				    */		
 					
 					System.out.println("Escolheu o seguinte produto:");
-					productList.displayEntity(EntityId);
+						productList.displayEntity(EntityId);
 					
 					System.out.println("Por favor altere os dados do produto seleccionado.");
+	
+					System.out.println("Nome original: " + ((Product) productList.findByEntityId(EntityId)).getProductName() + " | Novo nome do produto:");
+				
+						String inputproductName = Utils.getDataInputName(s);
+						((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
+						
 					
-					System.out.println("Este produto tem um Valor unitario de desconto de:");
-					((Product) productList.findByEntityId(EntityId)).getProductVal();
-					int inputproductVal = Utils.getDataInputInt(s);
-					((Product) productList.findByEntityId(EntityId)).setProductVal(inputproductVal);
-					//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductVal(inputproductVal);
+					System.out.println("Val original: " + ((Product) productList.findByEntityId(EntityId)).getProductVal() + " | Novo Val do produto:");
+						int inputproductVal = Utils.getDataInputInt(s);
+						((Product) productList.findByEntityId(EntityId)).setProductVal(inputproductVal);
 					
-					System.out.println("Este produto tem um IVA de:");
-					((Product) productList.findByEntityId(EntityId)).getProductIVA();
-					double inputproductIVA = Utils.getDataInputDouble(s);
-					((Product) productList.findByEntityId(EntityId)).setProductIVA(inputproductIVA);
-					//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductIVA(inputproductIVA);
+				
+					System.out.println("IVA original: " + ((Product) productList.findByEntityId(EntityId)).getProductIVA() + " | Novo IVA (6, 13 ou 23%) do produto:");
+						double inputproductIVA = Utils.getDataInputDouble(s);
+								//if else 6 13 23
+						((Product) productList.findByEntityId(EntityId)).setProductIVA(inputproductIVA);
+				
+					System.out.println("PVP original: " + ((Product) productList.findByEntityId(EntityId)).getProductPVP() + " | Novo PVP:");
+						double inputproductPVP = Utils.getDataInputDouble(s);
+						((Product) productList.findByEntityId(EntityId)).setProductPVP(inputproductPVP);
 					
-					System.out.println("Este produto tem um PVP de:");
-					((Product) productList.findByEntityId(EntityId)).getProductPVP();
-					double inputproductPVP = Utils.getDataInputDouble(s);
-					((Product) productList.findByEntityId(EntityId)).setProductPVP(inputproductPVP);
-					//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductPVP(inputproductPVP);
 							
-					ProductRepository.editEntity(EntityId, inputproductVal, inputproductIVA, inputproductPVP);
+					ProductRepository.editEntity(EntityId, inputproductName, inputproductVal, inputproductIVA, inputproductPVP);
 					
-					//Product newProduct = new Product(EntityId, inputproductVal, inputproductIVA, inputproductPVP);
-					
-					System.out.println("Produto: "+ EntityId + ", Val: " + inputproductVal + ", IVA: " + inputproductIVA  + ", PVP: " + inputproductPVP);
-					
+			
+					System.out.println("Detalhes do Produto: " + "Product ID: " + EntityId + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " | PVP = " + inputproductPVP);
+				
 					ProductListId();	
 					
 				}
@@ -266,7 +275,7 @@ public class TextInterface {
 					
 					while (true) {
 										
-						String answer = s.nextLine();
+						String answer = s.next();
 														
 						if (answer.equals("s")) {
 							productList.removeEntity(EntityId);
@@ -298,12 +307,15 @@ public class TextInterface {
 		public static void ShelvesListId(){   //screen 1.2
 						
 			if(shelfList.isEmpty()){
-				System.out.println("A lista de prateleiras esta vazia.");
+				System.out.println("A lista de prateleiras esta vazia. Por favor selecione outra opcao. \n");
 			}
 			else{
 					for (Integer key : shelfList.keySet()) {
-					   System.out.println("Id = " + key); //key
+					   System.out.println("ID = " + key); //key
+					   
+					   shelfList.displayEntity(key);
 					}
+					System.out.println("\n");
 			}
 		
 			System.out.println("Lista de prateleiras"); 
@@ -350,7 +362,7 @@ public class TextInterface {
 		public static void NewShelf(){
 			try (Scanner s = new Scanner(System.in)){
 				
-				int EntityId = ShelfRepository.getNextEntityId(); //Index++
+			//	int EntityId = ShelfRepository.getNextEntityId(); //Index++
 				
 				System.out.println("Por favor insira os dados da nova prateleira.");
 								
@@ -366,30 +378,71 @@ public class TextInterface {
 				double inputshelfDailyPCost = Utils.getDataInputDouble(s);
 				//((Product)ProductRepository.getInstance().findByEntityId(EntityId)).setProductPVP(inputproductPVP);
 			
-				Shelf newShelf = new Shelf(EntityId, inputshelfLocal, inputshelfCapacity, inputshelfDailyPCost);
+							
+				Shelf newShelf = new Shelf(inputshelfLocal, inputshelfCapacity, inputshelfDailyPCost);
+				shelfList.addEntityId(newShelf);
+				int index = shelfList.getEntityIndex(newShelf); 
 				
-				//EntityRepository.setEntities(E newProduct);
 								
-			//	EntityRepository.LinkedHashMap.put
-				
-				//ProductRepository.getInstance().addEntityId(newProduct);
-								
-				System.out.println("Detalhes da Prateleira: "+ "Shelf ID = " + EntityId + " | Localizacao = " + inputshelfLocal + " | Capacidade = " + inputshelfLocal  + " | Custo Diario = " + inputshelfDailyPCost);
+				System.out.println("Detalhes da Prateleira: "+ "Shelf ID = " + index + " | Localizacao = " + inputshelfLocal + " | Capacidade = " + inputshelfCapacity  + " | Custo Diario = " + inputshelfDailyPCost + "\n");
 				
 				ShelvesListId();	
 			}
 		}
 		
+			
+		
 	//..................................................................................................................................	
 		
 		public static void Editshelf(){
 			
+			if (shelfList.isEmpty()) {
+				System.out.println("A lista de prateleiras esta vazia.");
+				ShelvesListId(); //pa escolher outra opcao
+				
+			}else{
+				try (Scanner s = new Scanner(System.in)){
+					
+					System.out.println("Por favor indique a ID da prateleira que deseja editar");
+					
+					int EntityId = Utils.getShelfInputId(s);
+				
+					System.out.println("Escolheu a seguinte prateleira:");
+						shelfList.displayEntity(EntityId);
+					
+					System.out.println("Por favor altere os dados da prateleira seleccionada.");
+	
+									
+					System.out.println("Localizacao original: " + ((Shelf) shelfList.findByEntityId(EntityId)).getShelfLocal() + " | Nova localizacao:");
+						int inputshelfLocal = Utils.getDataInputInt(s);
+						((Shelf) shelfList.findByEntityId(EntityId)).setShelfLocal(inputshelfLocal);
+					
+				
+					System.out.println("Capacidade original: " + ((Shelf) shelfList.findByEntityId(EntityId)).getShelfCapacity() + " | Nova capacidade:");
+						int inputshelfCapacity = Utils.getDataInputInt(s);
+								//if else 6 13 23
+						((Shelf) shelfList.findByEntityId(EntityId)).setShelfCapacity(inputshelfCapacity);
+				
+					System.out.println("Custo diario original: " + ((Shelf) shelfList.findByEntityId(EntityId)).getShelfDailyCost() + " | Novo Custo diario:");
+						double inputshelfDailyPCost = Utils.getDataInputDouble(s);
+						((Shelf) shelfList.findByEntityId(EntityId)).setShelfDailyCost(inputshelfDailyPCost);
+					
+							
+					ShelfRepository.editEntity(EntityId, inputshelfLocal, inputshelfCapacity, inputshelfDailyPCost);
+					
+			
+					System.out.println("Detalhes doa Prateleira: " + "Prateleira ID: " + EntityId + " | Localizacao: " + inputshelfLocal + " | Capacidade: " + inputshelfCapacity  + " | Custo diario = " + inputshelfDailyPCost);
+				
+					ShelvesListId();
+				}
+			}
 		}
 			
 		
 	//..................................................................................................................................	
 		
 		public static void ViewShelfDetails(){
+			
 			if (shelfList.isEmpty()) {
 				System.out.println("A lista de prateleiras esta vazia.");
 				ShelvesListId(); //escolher outra opcao
@@ -403,10 +456,12 @@ public class TextInterface {
 					System.out.println("Escolheu a seguinte prateleira:");
 					shelfList.displayEntity(EntityId);
 								
-						
+					ShelvesListId();	
 					}					
 				}
 		}
+		
+		
 		
 	//..................................................................................................................................
 		
@@ -428,7 +483,7 @@ public class TextInterface {
 					
 					while (true) {
 										
-						String answer = s.nextLine();
+						String answer = s.next();
 														
 						if (answer.equals("s")) {
 							shelfList.removeEntity(EntityId);
@@ -448,7 +503,3 @@ public class TextInterface {
 }	
 		
 		
-	
-	
-
-

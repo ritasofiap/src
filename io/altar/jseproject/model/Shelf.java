@@ -4,24 +4,24 @@ package io.altar.jseproject.model;
 
 public class Shelf extends Entity{
 
-	private int shelfId;
+	//private int shelfId;
 	private int shelfLocal;
 	private int shelfCapacity;
 	//private int shelfProducts;
 	private double shelfDailyCost;
 
-	public Shelf (int shelfId, int shelfLocal, int shelfCapacity, double shelfDailyCost){
-		this.shelfId = shelfId;
+	public Shelf (int shelfLocal, int shelfCapacity, double shelfDailyCost){
+		//this.shelfId = shelfId;
 		this.shelfLocal = shelfLocal;
 		this.shelfCapacity = shelfCapacity;
 		this.shelfDailyCost = shelfDailyCost;
 	}
 	
 	
-	public int getShelfId() {
+	/*public int getShelfId() {
 		return shelfId;
 	}
-	
+	*/
 	public int getShelfLocal() {
 		return shelfLocal;
 	}
@@ -35,9 +35,10 @@ public class Shelf extends Entity{
 	}
 	
 
-	public void setShelfId(int shelfId) {
+	/*public void setShelfId(int shelfId) {
 		this.shelfId = shelfId;
-	}
+	}*/
+	
 	public void setShelfLocal(int shelfLocal) {
 		this.shelfLocal = shelfLocal;
 	}

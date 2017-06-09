@@ -2,16 +2,15 @@ package io.altar.jseproject.model;
 
 public class Entity {
 
-		protected static Integer entityId;
+		protected Integer entityId;
 		
-		public static Integer getEntityId(){
+		public Integer getEntityId(){
 	
-		
-		return entityId;
+			return entityId;
 		}
 		
 		public void setEntityId(int entityId){
-			Entity.entityId = entityId;
+			this.entityId = entityId;
 		}
 
 		
