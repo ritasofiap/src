@@ -15,14 +15,5 @@ public class ProductRepository extends EntityRepository<Product> {
 		return INSTANCE; 
 	}
 	
-		
-	public static void editEntity(Integer entityId, String productName, Integer productVal, Double productIVA, Double productPVP) {
-		
-		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductName(productName);
-		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductVal(productVal);
-		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductIVA(productIVA);
-		((Product)ProductRepository.getInstance().findByEntityId(entityId)).setProductPVP(productPVP);
-	}
-
 	
 }

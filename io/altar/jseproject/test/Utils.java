@@ -49,7 +49,7 @@ public abstract class Utils {
 		}
 	}
 	
-public static int getShelfInputId(Scanner s){
+	public static int getShelfInputId(Scanner s){
 		
 		int EntityId = 0;
 		EntityRepository<? extends Entity> entities = null;
@@ -64,6 +64,50 @@ public static int getShelfInputId(Scanner s){
 			}
 		}
 	}
+	
+	
+	
+	public static int getProductShelfInput(Scanner s){  //check se ha prateleiras!
+		
+		int inputproductShelf = 0;
+		
+			
+		while (true) {
+			
+			if(s.hasNextInt()) {
+				inputproductShelf = s.nextInt();
+				return inputproductShelf;
+			}else{
+				System.out.println("Por favor introduza uma prateleira valida.");
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	public static int getShelfProductInput(Scanner s){ //check se ha produtos!
+		
+		int inputshelfProduct= 0;
+		
+		while (true) {
+			
+			if(s.hasNextInt()) {
+				inputshelfProduct = s.nextInt();
+				return inputshelfProduct;
+			}else{
+				System.out.println("Por favor introduza uma prateleira valida.");
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public static String getDataInputName(Scanner s) {	
 	
@@ -97,6 +141,9 @@ public static int getShelfInputId(Scanner s){
 			}
 		}
 	}	
+	
+	
+	
 	
 	public static double getDataInputDouble(Scanner s) {	
 		

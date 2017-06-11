@@ -1,6 +1,6 @@
 package io.altar.jseproject.model;
 
-
+import java.util.ArrayList;
 
 public class Product extends Entity{
 
@@ -11,6 +11,8 @@ public class Product extends Entity{
 	private double productPVP;
 	private String productName;
 	
+	private ArrayList<Product> productShelves = new ArrayList<>();
+
 	
 	public Product (String productName, int productVal, double productIVA, double productPVP){
 		//this.productId = productId;
@@ -18,8 +20,12 @@ public class Product extends Entity{
 		this.productVal = productVal;
 		this.productIVA = productIVA;
 		this.productPVP = productPVP;
+		//this.productShelves = productShelves;
+		
 	}
 	
+	
+	//ProductRepository.getInstance().addToList(this);
 	
 	//---Id
 	/*public int getProductId() {
@@ -30,6 +36,10 @@ public class Product extends Entity{
 		return getEntityId();
 	}*/
 	//---
+
+	public ArrayList<Product> getProductShelves() {   //static???
+		return productShelves;
+	}
 
 	public String getProductName() {
 		return productName;
@@ -51,6 +61,13 @@ public class Product extends Entity{
 	this.productId = productId;
 	}*/
 	
+	
+
+	public void setProductShelf(ArrayList<Product> productShelves) {
+		this.productShelves = productShelves;
+	}
+	
+	
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
@@ -67,9 +84,11 @@ public class Product extends Entity{
 		this.productPVP = productPVP;
 	}
 	
+	
+	
 	@Override
 	public String toString(){
-		return "Product ID: "+ getEntityId() + " | Name: " + getProductName() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP;
+		return "Product ID: "+ getEntityId() + " | Name: " + getProductName() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP + " | Prateleiras: " + productShelves;
 	}
 	
 }
