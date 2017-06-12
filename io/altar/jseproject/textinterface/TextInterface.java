@@ -56,11 +56,12 @@ public class TextInterface {
 				else{
 					System.out.println("Lista de produtos: ");
 					
-							for (Integer key : productList.keySet()) {
-							   // System.out.println("ID: " + key); //key
-								
-								productList.displayEntity(key);
-							}
+					
+							productList.keySet().forEach(key -> productList.displayEntity(key));   //aula 12 junho
+							
+							//for (Integer key : productList.keySet()) {
+								//productList.displayEntity(key);
+							//}
 											
 							//for(Integer entityId : productList.keySet()){
 							//	System.out.println(productList.findByEntityId(entityId).toString());
@@ -160,7 +161,7 @@ public class TextInterface {
 				
 				int index = productList.getEntityIndex(newProduct); 
 				
-				System.out.println("Detalhes do Produto: " + "Product ID: " + index + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " % " + " | PVP = " + inputproductPVP + "€" +  " | Prateleiras: " + inputproductShelf + "\n");
+				System.out.println("Detalhes do Produto: " + "Product ID: " + index + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " % " + " | PVP = " + inputproductPVP + "$" +  " | Prateleiras: " + inputproductShelf + "\n");
 				
 				ProductListId();	
 			
@@ -216,7 +217,7 @@ public class TextInterface {
 					
 				
 					System.out.println("IVA original: " + ((Product) productList.findByEntityId(EntityId)).getProductIVA() + " | Novo IVA (6, 13 ou 23%) do produto:");
-						double inputproductIVA = Utils.getDataInputDouble(s);
+						double inputproductIVA = Utils.getDataInputIVA(s);
 								//if else 6 13 23
 						((Product) productList.findByEntityId(EntityId)).setProductIVA(inputproductIVA);
 				
@@ -228,7 +229,7 @@ public class TextInterface {
 					ProductRepository.editEntity(EntityId, inputproductName, inputproductVal, inputproductIVA, inputproductPVP);
 					
 			
-					System.out.println("Detalhes do Produto: " + "Product ID: " + EntityId + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA + " % " + " | PVP = " + inputproductPVP + "€");
+					System.out.println("Detalhes do Produto: " + "Product ID: " + EntityId + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA + " % " + " | PVP = " + inputproductPVP + "$");
 				
 					ProductListId();	
 					
@@ -320,11 +321,13 @@ public class TextInterface {
 				System.out.println("A lista de prateleiras esta vazia. Por favor selecione outra opcao. \n");
 			}
 			else{
-					for (Integer key : shelfList.keySet()) {
+				
+					shelfList.keySet().forEach(key -> shelfList.displayEntity(key));  //aula 12 junho
+					/*for (Integer key : shelfList.keySet()) {
 					   System.out.println("ID = " + key); //key
 					   
 					   shelfList.displayEntity(key);
-					}
+					}*/
 					System.out.println("\n");
 			}
 		
@@ -369,7 +372,7 @@ public class TextInterface {
 	
 	//..................................................................................................................................	
 		
-		public static void NewShelf(){
+		public static void NewShelf(){   //screen 1.2.1
 			try (Scanner s = new Scanner(System.in)){
 				
 			//	int EntityId = ShelfRepository.getNextEntityId(); //Index++
@@ -405,7 +408,7 @@ public class TextInterface {
 				
 				int index = shelfList.getEntityIndex(newShelf); 
 							
-				System.out.println("Detalhes da Prateleira: "+ "Shelf ID: " + index + " | Localizacao: " + inputshelfLocal + " | Capacidade: " + inputshelfCapacity  + " | Custo Diario: " + inputshelfDailyPCost + "€ " + " ! Produto disponivel na prateleira: " + inputshelfProduct + "\n");
+				System.out.println("Detalhes da Prateleira: "+ "Shelf ID: " + index + " | Localizacao: " + inputshelfLocal + " | Capacidade: " + inputshelfCapacity  + " | Custo Diario: " + inputshelfDailyPCost + "$ " + " ! Produto disponivel na prateleira: " + inputshelfProduct + "\n");
 				
 				//" | Produto na prateleira: " + inputshelfProduct
 				
@@ -417,7 +420,7 @@ public class TextInterface {
 		
 	//..................................................................................................................................	
 		
-		public static void Editshelf(){
+		public static void Editshelf(){  //screen 1.2.2
 			
 			if (shelfList.isEmpty()) {
 				System.out.println("A lista de prateleiras esta vazia.");
@@ -454,7 +457,7 @@ public class TextInterface {
 					ShelfRepository.editEntity(EntityId, inputshelfLocal, inputshelfCapacity, inputshelfDailyPCost);
 					
 			
-					System.out.println("Detalhes doa Prateleira: " + "Prateleira ID: " + EntityId + " | Localizacao: " + inputshelfLocal + " | Capacidade: " + inputshelfCapacity  + " | Custo diario: " + inputshelfDailyPCost + "€");
+					System.out.println("Detalhes doa Prateleira: " + "Prateleira ID: " + EntityId + " | Localizacao: " + inputshelfLocal + " | Capacidade: " + inputshelfCapacity  + " | Custo diario: " + inputshelfDailyPCost + "$");
 				
 					ShelvesListId();
 				}
@@ -464,7 +467,7 @@ public class TextInterface {
 		
 	//..................................................................................................................................	
 		
-		public static void ViewShelfDetails(){
+		public static void ViewShelfDetails(){  //screen 1.2.3
 			
 			if (shelfList.isEmpty()) {
 				System.out.println("A lista de prateleiras esta vazia.");
@@ -488,7 +491,7 @@ public class TextInterface {
 		
 	//..................................................................................................................................
 		
-		public static void RemoveShelf(){
+		public static void RemoveShelf(){   //screen 1.2.4
 			if (shelfList.isEmpty()) {
 				System.out.println("A lista de pratleiras esta vazia.");
 				ShelvesListId(); //escolher outra opcao

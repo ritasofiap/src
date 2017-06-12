@@ -10,7 +10,7 @@ public class Shelf extends Entity{
 	//private int shelfProduct;
 	private double shelfDailyCost;
 	
-	private ArrayList<Shelf> shelfProduct = new ArrayList<>();  //valerá a pena se cada prateleira so pode ter 1 produto??
+	private ArrayList<Shelf> shelfProduct = new ArrayList<>();  //valerï¿½ a pena se cada prateleira so pode ter 1 produto??
 
 
 	public Shelf (int shelfLocal, int shelfCapacity, double shelfDailyCost){

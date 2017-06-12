@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Product extends Entity{
 
 	//private int productId;
-	//private tipo productShelves; array list
+	//private tipo productShelves; //array list
 	private int productVal;
 	private double productIVA;
 	private double productPVP;
@@ -88,7 +88,7 @@ public class Product extends Entity{
 	
 	@Override
 	public String toString(){
-		return "Product ID: "+ getEntityId() + " | Name: " + getProductName() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP + " | Prateleiras: " + productShelves;
+		return "Product ID: "+ getEntityId() + " | Name: " + getProductName() + " | Val: " + productVal + " | IVA: " + productIVA  + " | PVP: " + productPVP + " | Shelves: " + productShelves;
 	}
 	
 }

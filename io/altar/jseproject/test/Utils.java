@@ -33,6 +33,7 @@ public abstract class Utils {
 		}
 	
 	//LinkedHashMap<Integer, E> entities = new LinkedHashMap<>();
+	
 	public static int getProdutInputId(Scanner s){
 		
 		int EntityId = 0;
@@ -102,12 +103,7 @@ public abstract class Utils {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
+		
 	
 	public static String getDataInputName(Scanner s) {	
 	
