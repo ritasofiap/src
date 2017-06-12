@@ -1,5 +1,6 @@
 package io.altar.jseproject.test;
 
+
 import java.util.Scanner;
 
 import io.altar.jseproject.model.Entity;
@@ -176,6 +177,26 @@ public abstract class Utils {
 	}
 	
 	
+/*	public void keyPressed(KeyEvent e){
+	    int keyCode = e.getKeyCode();
+	        if(keyCode == KeyEvent.VK_ENTER){
+	          
+	        }
+	}
+*/	
+	public static void getEnter(Scanner s) {
+		String readString = s.nextLine();
+		//System.out.println(readString);
+		if (readString.equals("")){
+			System.out.println("Enter Key pressed.");
+			
+		}else if(s.hasNextLine()){
+			readString = s.nextLine();
+		}else{
+			readString = null;
+		}
+	
+	}
 }
 
 

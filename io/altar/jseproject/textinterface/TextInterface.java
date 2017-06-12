@@ -1,5 +1,6 @@
 package io.altar.jseproject.textinterface;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 import io.altar.jseproject.test.Utils;
@@ -135,14 +136,7 @@ public class TextInterface {
 				
 				System.out.println("PVP:");
 				double inputproductPVP = Utils.getDataInputDouble(s);
-							
-					
-				//if(!shelfList.isEmpty()){
-				System.out.println("ID da prateleira onde deseja expor o produto:");  //checkar se existe prateleira onde colocar o produto, mas n e obrigatorio existiram prateleiras!
-				int inputproductShelf = Utils.getProductShelfInput(s); 			
-				
-				
-				
+		
 				Product newProduct = new Product(inputproductName, inputproductVal, inputproductIVA, inputproductPVP);
 				
 								
@@ -161,7 +155,21 @@ public class TextInterface {
 				
 				int index = productList.getEntityIndex(newProduct); 
 				
+				if(!shelfList.isEmpty()){
+				System.out.println("ID da prateleira onde deseja expor o produto:");  //checkar se existe prateleira onde colocar o produto, mas n e obrigatorio existiram prateleiras!
+				int inputproductShelf = Utils.getProductShelfInput(s); 	
+					//	check if key exist
+					// s nao existir ou se a shelf tiver cheia, pedir ao utilizador outra id
+					// se existir - adicionara shelf
+
+								
 				System.out.println("Detalhes do Produto: " + "Product ID: " + index + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " % " + " | PVP = " + inputproductPVP + "$" +  " | Prateleiras: " + inputproductShelf + "\n");
+				
+				}else{
+					
+				System.out.println("Detalhes do Produto: " + "Product ID: " + index + " | Product Name: "+ inputproductName + " | Val: " + inputproductVal + " | IVA: " + inputproductIVA  + " % " + " | PVP = " + inputproductPVP + "$" + "\n");
+
+				}
 				
 				ProductListId();	
 			
@@ -179,6 +187,8 @@ public class TextInterface {
 		
 		//..................................................................................................................................
 		
+		
+		
 		public static void EditProduct(){  //screen 1.1.2
 			
 			if (productList.isEmpty()) {
@@ -193,39 +203,59 @@ public class TextInterface {
 					int EntityId = Utils.getProdutInputId(s);
 								
 					//check if product exists (ja faz no getProdict/input
-					
-					/*;
-				    System.out.println("ID exists in LinkedHashMap ? : " + productExists);
-				    if true -> edit product
-				    else -> pedir novo input
-				    */		
-					
+										
 					System.out.println("Escolheu o seguinte produto:");
 						productList.displayEntity(EntityId);
 					
-					System.out.println("Por favor altere os dados do produto seleccionado.");
+					System.out.println("Por favor al tere os dados do produto seleccionado.");
 	
 					System.out.println("Nome original: " + ((Product) productList.findByEntityId(EntityId)).getProductName() + " | Novo nome do produto:");
 				
-						String inputproductName = Utils.getDataInputName(s);
-						((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
-						
 					
-					System.out.println("Val original: " + ((Product) productList.findByEntityId(EntityId)).getProductVal() + " | Novo Val do produto:");
-						int inputproductVal = Utils.getDataInputInt(s);
-						((Product) productList.findByEntityId(EntityId)).setProductVal(inputproductVal);
+					String inputproductName = Utils.getDataInputName(s);
+					((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
+
+					
+					/*	String inputproductName = "";
+						inputproductName = s.nextLine();
+						
+							if (inputproductName.equals("")){  //erro, esta a reconhecer o enter antes????
+								System.out.println("Manteve o valor original.");
+								inputproductName = ((Product) productList.findByEntityId(EntityId)).getProductName();
+							}else{
+								((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
+							}
+						
+						*/
+						
+						
+					/*	try{ 
+							int enter = Integer.parseInt(s.nextLine());
+						} catch (NumberFormatException e){
+							System.out.println("erro");
+						}
+					*/
+									
 					
 				
+					System.out.println("Val original: " + ((Product) productList.findByEntityId(EntityId)).getProductVal() + " | Novo Val do produto:");
+						//if press enter - print original
+						int inputproductVal = Utils.getDataInputInt(s);
+						((Product) productList.findByEntityId(EntityId)).setProductVal(inputproductVal);
+				
 					System.out.println("IVA original: " + ((Product) productList.findByEntityId(EntityId)).getProductIVA() + " | Novo IVA (6, 13 ou 23%) do produto:");
+						//if press enter - print original
 						double inputproductIVA = Utils.getDataInputIVA(s);
-								//if else 6 13 23
 						((Product) productList.findByEntityId(EntityId)).setProductIVA(inputproductIVA);
 				
 					System.out.println("PVP original: " + ((Product) productList.findByEntityId(EntityId)).getProductPVP() + " | Novo PVP:");
+						//if press enter - print original
 						double inputproductPVP = Utils.getDataInputDouble(s);
 						((Product) productList.findByEntityId(EntityId)).setProductPVP(inputproductPVP);
 					
 							
+					//EDITAR SHELF	
+						
 					ProductRepository.editEntity(EntityId, inputproductName, inputproductVal, inputproductIVA, inputproductPVP);
 					
 			
