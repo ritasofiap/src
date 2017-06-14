@@ -1,6 +1,5 @@
 package io.altar.jseproject.textinterface;
 
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 import io.altar.jseproject.test.Utils;
@@ -202,7 +201,7 @@ public class TextInterface {
 					
 					int EntityId = Utils.getProdutInputId(s);
 								
-					//check if product exists (ja faz no getProdict/input
+					//check if product exists (ja faz no getProduct/input
 										
 					System.out.println("Escolheu o seguinte produto:");
 						productList.displayEntity(EntityId);
@@ -210,25 +209,21 @@ public class TextInterface {
 					System.out.println("Por favor al tere os dados do produto seleccionado.");
 	
 					System.out.println("Nome original: " + ((Product) productList.findByEntityId(EntityId)).getProductName() + " | Novo nome do produto:");
-				
 					
-					String inputproductName = Utils.getDataInputName(s);
-					((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
+						String inputproductName = Utils.checkIfEmpty(s);
+						//((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
 
-					
-					/*	String inputproductName = "";
-						inputproductName = s.nextLine();
-						
-							if (inputproductName.equals("")){  //erro, esta a reconhecer o enter antes????
-								System.out.println("Manteve o valor original.");
+					//String inputproductName = "";
+					//inputproductName = s.nextLine();
+										
+						/*	if (inputproductName.equals("")){  //erro, esta a reconhecer o enter antes???? ou is Empty
+								//System.out.println("Manteve o valor original.");
 								inputproductName = ((Product) productList.findByEntityId(EntityId)).getProductName();
 							}else{
 								((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
 							}
-						
 						*/
-						
-						
+					
 					/*	try{ 
 							int enter = Integer.parseInt(s.nextLine());
 						} catch (NumberFormatException e){
@@ -237,7 +232,6 @@ public class TextInterface {
 					*/
 									
 					
-				
 					System.out.println("Val original: " + ((Product) productList.findByEntityId(EntityId)).getProductVal() + " | Novo Val do produto:");
 						//if press enter - print original
 						int inputproductVal = Utils.getDataInputInt(s);

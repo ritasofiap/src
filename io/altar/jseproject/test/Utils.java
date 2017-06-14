@@ -111,10 +111,12 @@ public abstract class Utils {
 		String inputString = "";		
 	
 		while(true){ 
+			
 			if(s.hasNext()){
 				inputString = s.next();
 				return inputString;
 			}
+			
 			else{
 				System.out.println("Por favor introduza um nome valido.");
 			}
@@ -122,6 +124,27 @@ public abstract class Utils {
 	}	
 
 
+	
+	public static String checkIfEmpty(Scanner s) {	
+		
+		String inputString = "";		
+	
+		while(true){ 
+			
+			if(s.hasNext()){
+				if(!inputString.equals("")){
+				inputString = s.next();
+				return inputString;
+				
+			}else{
+				return null;
+			}
+			}else{
+		System.out.println("Por favor introduza um nome valido.");
+		}
+		}
+	}	
+	
 
 
 	
@@ -184,8 +207,10 @@ public abstract class Utils {
 	        }
 	}
 */	
-	public static void getEnter(Scanner s) {
+	public static void Enter(Scanner s) {
+		
 		String readString = s.nextLine();
+		
 		//System.out.println(readString);
 		if (readString.equals("")){
 			System.out.println("Enter Key pressed.");
