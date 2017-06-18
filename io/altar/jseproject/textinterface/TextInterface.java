@@ -210,7 +210,10 @@ public class TextInterface {
 	
 					System.out.println("Nome original: " + ((Product) productList.findByEntityId(EntityId)).getProductName() + " | Novo nome do produto:");
 					
-						String inputproductName = Utils.checkIfEmpty(s);
+						String inputproductName = Utils.getDataInputName(s);
+						
+						//String inputproductName = Utils.checkIfEmpty(s);
+
 						//((Product) productList.findByEntityId(EntityId)).setProductName(inputproductName);
 
 					//String inputproductName = "";
